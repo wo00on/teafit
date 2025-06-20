@@ -2,71 +2,142 @@ import { Tea } from '../types/tea';
 
 export const teas: Tea[] = [
   {
-    id: 'green-tea',
-    name: { ko: '녹차', en: 'Green Tea' },
-    category: 'premium',
+    id: 'ginger-tea',
+    name: { ko: '생강차', en: 'Ginger Tea' },
+    category: 'herbal',
     description: {
-      ko: '항산화 성분이 풍부한 전통 녹차로 집중력 향상에 도움을 줍니다.',
-      en: 'Traditional green tea rich in antioxidants that helps improve concentration.'
+      ko: '따뜻하고 매콤한 생강의 향으로 몸을 따뜻하게 해주는 건강차입니다.',
+      en: 'Warm and spicy ginger tea that heats the body and promotes wellness.'
     },
     benefits: {
-      ko: ['집중력 향상', '항산화 작용', '신진대사 촉진'],
-      en: ['Improved concentration', 'Antioxidant properties', 'Metabolism boost']
+      ko: ['혈액순환 개선', '면역력 강화', '소화 촉진'],
+      en: ['Improved circulation', 'Immune boost', 'Digestive aid']
     },
-    brewingTime: '2-3분',
-    temperature: '70-80°C',
-    caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
-    tags: ['concentration', 'antioxidant', 'traditional']
+    brewingTime: '5-7분',
+    temperature: '95-100°C',
+    caffeine: 'none',
+    image: 'https://images.unsplash.com/photo-1597318813788-0e5afc00d0c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['warming', 'spicy', 'immune-boost']
   },
   {
     id: 'chamomile',
     name: { ko: '캐모마일', en: 'Chamomile' },
     category: 'herbal',
     description: {
-      ko: '마음을 진정시키고 편안한 잠자리를 도와주는 허브차입니다.',
-      en: 'Herbal tea that calms the mind and promotes restful sleep.'
+      ko: '부드럽고 달콤한 향으로 마음을 평온하게 해주는 허브차입니다.',
+      en: 'Gentle and sweet herbal tea that brings peace and tranquility to the mind.'
     },
     benefits: {
-      ko: ['수면 유도', '스트레스 완화', '소화 개선'],
+      ko: ['숙면 유도', '스트레스 완화', '소화 개선'],
       en: ['Sleep promotion', 'Stress relief', 'Digestive support']
     },
     brewingTime: '5-7분',
-    temperature: '90-95°C',
+    temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
-    tags: ['relaxation', 'sleep', 'herbal']
+    image: 'https://images.unsplash.com/photo-1564890781544-8f85f0a2b8b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['calming', 'floral', 'bedtime']
   },
   {
-    id: 'ginger-tea',
-    name: { ko: '생강차', en: 'Ginger Tea' },
+    id: 'yuzu-tea',
+    name: { ko: '유자차', en: 'Yuzu Tea' },
     category: 'herbal',
     description: {
-      ko: '몸을 따뜻하게 해주고 혈액순환을 개선하는 매콤한 차입니다.',
-      en: 'Warming spicy tea that improves circulation and heats the body.'
+      ko: '상큼한 유자의 향과 달콤함이 어우러진 전통 한국차입니다.',
+      en: 'Traditional Korean tea with refreshing yuzu citrus aroma and natural sweetness.'
     },
     benefits: {
-      ko: ['체온 상승', '혈액순환 개선', '소화 촉진'],
-      en: ['Body warming', 'Circulation improvement', 'Digestive aid']
+      ko: ['비타민C 풍부', '면역력 증진', '피로 회복'],
+      en: ['Rich in Vitamin C', 'Immune boost', 'Fatigue relief']
     },
-    brewingTime: '5-10분',
+    brewingTime: '3-5분',
+    temperature: '80-90°C',
+    caffeine: 'none',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['citrus', 'vitamin-c', 'korean-traditional']
+  },
+  {
+    id: 'green-tea',
+    name: { ko: '녹차', en: 'Green Tea' },
+    category: 'premium',
+    description: {
+      ko: '신선한 찻잎의 깔끔하고 상쾌한 맛이 일품인 전통 녹차입니다.',
+      en: 'Traditional green tea with fresh, clean taste from premium tea leaves.'
+    },
+    benefits: {
+      ko: ['항산화 작용', '집중력 향상', '신진대사 촉진'],
+      en: ['Antioxidant power', 'Enhanced focus', 'Metabolism boost']
+    },
+    brewingTime: '2-3분',
+    temperature: '70-80°C',
+    caffeine: 'medium',
+    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['antioxidant', 'focus', 'traditional']
+  },
+  {
+    id: 'plum-tea',
+    name: { ko: '매실차', en: 'Plum Tea' },
+    category: 'herbal',
+    description: {
+      ko: '새콤달콤한 매실의 맛으로 입맛을 돋우는 건강차입니다.',
+      en: 'Sweet and sour plum tea that stimulates appetite and promotes health.'
+    },
+    benefits: {
+      ko: ['소화 촉진', '피로 회복', '해독 작용'],
+      en: ['Digestive aid', 'Fatigue recovery', 'Detoxification']
+    },
+    brewingTime: '5-7분',
+    temperature: '85-95°C',
+    caffeine: 'none',
+    image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['digestive', 'sweet-sour', 'detox']
+  },
+  {
+    id: 'black-tea',
+    name: { ko: '홍차', en: 'Black Tea' },
+    category: 'premium',
+    description: {
+      ko: '진한 향과 깊은 맛이 특징인 클래식한 홍차입니다.',
+      en: 'Classic black tea with rich aroma and deep, robust flavor.'
+    },
+    benefits: {
+      ko: ['에너지 증진', '집중력 향상', '심장 건강'],
+      en: ['Energy boost', 'Mental alertness', 'Heart health']
+    },
+    brewingTime: '3-5분',
+    temperature: '95-100°C',
+    caffeine: 'high',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    tags: ['energy', 'focus', 'traditional']
+  },
+  {
+    id: 'cinnamon-tea',
+    name: { ko: '계피차', en: 'Cinnamon Tea' },
+    category: 'herbal',
+    description: {
+      ko: '달콤하고 따뜻한 계피 향이 몸과 마음을 따뜻하게 해주는 차입니다.',
+      en: 'Sweet and warming cinnamon tea that comforts both body and soul.'
+    },
+    benefits: {
+      ko: ['혈액순환 개선', '혈당 조절', '항염 작용'],
+      en: ['Circulation improvement', 'Blood sugar control', 'Anti-inflammatory']
+    },
+    brewingTime: '7-10분',
     temperature: '95-100°C',
     caffeine: 'none',
     image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['warming', 'circulation', 'spicy']
   },
-
   {
     id: 'mate-tea',
     name: { ko: '마테차', en: 'Mate Tea' },
     category: 'premium',
     description: {
-      ko: '남미 전통 차로 자연스러운 에너지와 집중력을 제공합니다.',
-      en: 'Traditional South American tea providing natural energy and focus.'
+      ko: '남미 원산의 에너지 넘치는 전통차로 자연 카페인이 풍부합니다.',
+      en: 'Energizing South American traditional tea rich in natural caffeine.'
     },
     benefits: {
-      ko: ['에너지 증가', '집중력 향상', '항산화 작용'],
-      en: ['Energy boost', 'Enhanced focus', 'Antioxidant properties']
+      ko: ['에너지 증진', '지구력 향상', '항산화'],
+      en: ['Energy enhancement', 'Endurance boost', 'Antioxidant']
     },
     brewingTime: '3-5분',
     temperature: '70-80°C',
@@ -89,7 +160,7 @@ export const teas: Tea[] = [
     brewingTime: '5-8분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['traditional', 'eye-care', 'floral']
   },
 
@@ -109,7 +180,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '95-100°C',
     caffeine: 'high',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1571934811086-9dd9d2b525b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['citrus', 'premium', 'afternoon']
   },
   {
@@ -127,7 +198,7 @@ export const teas: Tea[] = [
     brewingTime: '2-3분',
     temperature: '75-85°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['floral', 'relaxation', 'fragrant']
   },
   {
@@ -145,7 +216,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1571934811086-9dd9d2b525b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['spicy', 'warming', 'traditional']
   },
   {
@@ -163,7 +234,7 @@ export const teas: Tea[] = [
     brewingTime: '4-6분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['citrus', 'sweet', 'vitamin']
   },
 
@@ -183,7 +254,7 @@ export const teas: Tea[] = [
     brewingTime: '5-10분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['nutty', 'traditional', 'cooling']
   },
   {
@@ -201,7 +272,7 @@ export const teas: Tea[] = [
     brewingTime: '7-10분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1571934811086-9dd9d2b525b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['nutty', 'healthy', 'filling']
   },
   {
@@ -219,7 +290,7 @@ export const teas: Tea[] = [
     brewingTime: '10-15분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['detox', 'medicinal', 'cleansing']
   },
   {
@@ -237,7 +308,7 @@ export const teas: Tea[] = [
     brewingTime: '8-12분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1582282436293-7a0ae64aebcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['protein', 'antioxidant', 'beauty']
   },
 
@@ -257,7 +328,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['sweet', 'mineral', 'caffeine-free']
   },
   {
@@ -275,7 +346,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1623691345865-85971b4c9d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['mint', 'digestive', 'cooling']
   },
   {
@@ -293,7 +364,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['tart', 'colorful', 'vitamin']
   },
 
@@ -313,7 +384,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '85-95°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['premium', 'metabolism', 'traditional']
   },
   {
@@ -331,7 +402,7 @@ export const teas: Tea[] = [
     brewingTime: '4-6분',
     temperature: '75-85°C',
     caffeine: 'low',
-    image: 'https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1597318813788-0e5afc00d0c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['delicate', 'premium', 'anti-aging']
   },
   {
@@ -355,44 +426,23 @@ export const teas: Tea[] = [
 ];
 
 export const getTodayRecommendation = (): Tea => {
-  const now = new Date();
-  const hour = now.getHours();
-  const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
-  
-  // Use day of year to cycle through different teas each day
-  const teaIndex = dayOfYear % teas.length;
-  
-  // Still consider time of day for appropriate recommendations
-  if (hour >= 6 && hour < 12) {
-    // Morning: Energy boosting teas (green tea, mate tea)
-    const morningTeas = teas.filter(tea => tea.caffeine === 'medium' || tea.caffeine === 'high');
-    return morningTeas[dayOfYear % morningTeas.length] || teas[teaIndex];
-  } else if (hour >= 12 && hour < 18) {
-    // Afternoon: Focus enhancing teas
-    const afternoonTeas = teas.filter(tea => tea.tags.includes('focus') || tea.tags.includes('concentration'));
-    return afternoonTeas[dayOfYear % afternoonTeas.length] || teas[teaIndex];
-  } else {
-    // Evening: Relaxing teas
-    const eveningTeas = teas.filter(tea => tea.caffeine === 'none' && (tea.tags.includes('relaxation') || tea.tags.includes('sleep')));
-    return eveningTeas[dayOfYear % eveningTeas.length] || teas[teaIndex];
-  }
+  const today = new Date();
+  const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
+  const index = dayOfYear % teas.length;
+  return teas[index];
 };
 
 export const searchTeas = (query: string, category?: string): Tea[] => {
-  let filtered = teas;
-  
-  if (category && category !== 'all') {
-    filtered = filtered.filter(tea => tea.category === category);
-  }
-  
-  if (query) {
-    const lowercaseQuery = query.toLowerCase();
-    filtered = filtered.filter(tea => 
-      tea.name.ko.toLowerCase().includes(lowercaseQuery) ||
-      tea.name.en.toLowerCase().includes(lowercaseQuery) ||
-      tea.tags.some(tag => tag.toLowerCase().includes(lowercaseQuery))
-    );
-  }
-  
-  return filtered;
+  return teas.filter(tea => {
+    const matchesQuery = !query || 
+      tea.name.ko.toLowerCase().includes(query.toLowerCase()) ||
+      tea.name.en.toLowerCase().includes(query.toLowerCase()) ||
+      tea.description.ko.toLowerCase().includes(query.toLowerCase()) ||
+      tea.description.en.toLowerCase().includes(query.toLowerCase()) ||
+      tea.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()));
+    
+    const matchesCategory = !category || tea.category === category;
+    
+    return matchesQuery && matchesCategory;
+  });
 };

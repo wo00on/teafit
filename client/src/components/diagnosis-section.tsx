@@ -39,7 +39,7 @@ export function DiagnosisSection() {
 
   const recommendationMutation = useMutation({
     mutationFn: async (answers: Partial<DiagnosisAnswer>) => {
-      const response = await apiRequest('POST', '/api/recommend', { answers });
+      const response = await apiRequest('POST', '/api/recommend', { answers, language });
       return response.json();
     },
     onSuccess: (data) => {
