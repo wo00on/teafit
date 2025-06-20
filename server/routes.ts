@@ -93,45 +93,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { answers } = req.body;
       
-      // Tea recommendation algorithm based on answers
+      // Enhanced tea recommendation algorithm with more variety
       let recommendedTea = "녹차"; // Default
       
       if (answers.temperature === "cold") {
         if (answers.desiredEffect === "energy") {
           recommendedTea = "생강차";
         } else if (answers.desiredEffect === "calm") {
-          recommendedTea = "유자차";
-        } else {
+          recommendedTea = "차이 스파이스";
+        } else if (answers.desiredEffect === "digestion") {
           recommendedTea = "계피차";
+        } else {
+          recommendedTea = "생강차";
         }
       } else if (answers.digestion === "poor") {
         if (answers.caffeine === "sensitive") {
           recommendedTea = "페퍼민트";
+        } else if (answers.desiredEffect === "focus") {
+          recommendedTea = "보이차";
         } else {
-          recommendedTea = "매실차";
+          recommendedTea = "현미차";
         }
       } else if (answers.sleep === "poor" || answers.desiredEffect === "sleep") {
         if (answers.stress === "high") {
-          recommendedTea = "라벤더차";
-        } else {
           recommendedTea = "캐모마일";
+        } else if (answers.caffeine === "sensitive") {
+          recommendedTea = "히비스커스";
+        } else {
+          recommendedTea = "국화차";
         }
       } else if (answers.stress === "high" || answers.desiredEffect === "calm") {
-        recommendedTea = "국화차";
+        if (answers.caffeine === "sensitive") {
+          recommendedTea = "자스민 녹차";
+        } else {
+          recommendedTea = "루이보스";
+        }
       } else if (answers.caffeine === "sensitive") {
         if (answers.desiredEffect === "energy") {
-          recommendedTea = "루이보스";
+          recommendedTea = "검은콩차";
+        } else if (answers.desiredEffect === "digestion") {
+          recommendedTea = "옥수수수염차";
         } else {
           recommendedTea = "보리차";
         }
       } else if (answers.morning === "tired" || answers.desiredEffect === "energy") {
         if (answers.energyTime === "morning") {
           recommendedTea = "마테차";
+        } else if (answers.energyTime === "afternoon") {
+          recommendedTea = "얼그레이";
         } else {
-          recommendedTea = "홍차";
+          recommendedTea = "우롱차";
         }
       } else if (answers.desiredEffect === "focus") {
-        recommendedTea = "녹차";
+        if (answers.caffeine === "sensitive") {
+          recommendedTea = "백차";
+        } else {
+          recommendedTea = "녹차";
+        }
+      } else if (answers.desiredEffect === "digestion") {
+        recommendedTea = "보이차";
       }
 
       res.json({ recommendedTea, explanation: getTeaExplanation(recommendedTea) });
@@ -153,12 +173,22 @@ function getTeaExplanation(teaName: string): string {
     "국화차": "눈의 피로를 풀어주고 마음을 차분하게 해줍니다.",
     "마테차": "카페인이 함유되어 에너지 증진에 도움을 줍니다.",
     "보리차": "무카페인으로 갈증해소와 소화에 좋습니다.",
-    "라벤더차": "스트레스 완화와 심신 이완에 효과적입니다.",
     "페퍼민트": "소화불량 완화와 속을 시원하게 해줍니다.",
     "매실차": "소화촉진과 피로회복에 도움을 줍니다.",
     "홍차": "기력회복과 아침 활력에 좋습니다.",
     "루이보스": "무카페인이면서 미네랄이 풍부합니다.",
-    "계피차": "혈액순환 개선과 몸을 따뜻하게 해줍니다."
+    "계피차": "혈액순환 개선과 몸을 따뜻하게 해줍니다.",
+    "얼그레이": "베르가못 향으로 기분을 전환하고 집중력을 높여줍니다.",
+    "자스민 녹차": "은은한 꽃향과 함께 스트레스를 완화해줍니다.",
+    "차이 스파이스": "향신료로 혈액순환을 돕고 면역력을 강화합니다.",
+    "레몬 허니": "비타민C로 면역력을 높이고 감기를 예방합니다.",
+    "현미차": "혈당 안정과 체중 관리에 도움을 줍니다.",
+    "옥수수수염차": "이뇨작용으로 부종 완화와 신장 건강에 좋습니다.",
+    "검은콩차": "항산화 성분으로 노화 방지와 모발 건강에 효과적입니다.",
+    "히비스커스": "혈압 조절과 강력한 항산화 작용을 합니다.",
+    "우롱차": "지방 분해와 신진대사 촉진에 도움을 줍니다.",
+    "백차": "강력한 항산화 작용으로 피부 미용과 항노화에 효과적입니다.",
+    "보이차": "소화 개선과 체중 감량에 도움을 주는 발효차입니다."
   };
   
   return explanations[teaName] || "건강한 차 생활을 위한 좋은 선택입니다.";

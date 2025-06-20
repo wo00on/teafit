@@ -118,7 +118,7 @@ export function DiagnosisSection() {
                 <Card key={question} className="bg-white rounded-2xl shadow-sm">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-semibold text-amber-800 mb-4">
-                      ① {questionText}
+                      {index + 1}. {questionText}
                     </h3>
                     <RadioGroup
                       value={answers[question] || ''}
@@ -156,9 +156,9 @@ export function DiagnosisSection() {
 
         {/* Recommendation Result Dialog */}
         <Dialog open={showResultDialog} onOpenChange={setShowResultDialog}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-amber-800 text-center">
+              <DialogTitle className="text-3xl font-elegant font-medium text-amber-800 text-center">
                 {language === 'ko' ? '당신을 위한 완벽한 차' : 'Your Perfect Tea'}
               </DialogTitle>
             </DialogHeader>
@@ -188,27 +188,52 @@ export function DiagnosisSection() {
                 </div>
 
                 {recommendedTea.teaDetails && (
-                  <div className="bg-orange-50 rounded-xl p-6">
-                    <h4 className="font-semibold text-amber-800 mb-4">
-                      {language === 'ko' ? '차 정보' : 'Tea Information'}
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="mr-2 w-4 h-4 text-emerald-600" />
-                        <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {recommendedTea.teaDetails.brewingTime}</span>
+                  <div className="space-y-6">
+                    <div className="bg-orange-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-amber-800 mb-4">
+                        {language === 'ko' ? '차 정보' : 'Tea Information'}
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Clock className="mr-2 w-4 h-4 text-emerald-600" />
+                          <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {recommendedTea.teaDetails.brewingTime}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />
+                          <span>{language === 'ko' ? '적정 온도' : 'Temperature'}: {recommendedTea.teaDetails.temperature}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Star className="mr-2 w-4 h-4 text-emerald-600" />
+                          <span>{language === 'ko' ? '카페인' : 'Caffeine'}: {recommendedTea.teaDetails.caffeine === 'none' ? (language === 'ko' ? '무카페인' : 'None') : recommendedTea.teaDetails.caffeine}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />
-                        <span>{language === 'ko' ? '적정 온도' : 'Temperature'}: {recommendedTea.teaDetails.temperature}</span>
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Star className="mr-2 w-4 h-4 text-emerald-600" />
-                        <span>{language === 'ko' ? '효능' : 'Benefits'}: {recommendedTea.teaDetails.benefits[language].slice(0, 2).join(', ')}</span>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {recommendedTea.teaDetails.description[language]}
+                      </p>
+                    </div>
+
+                    <div className="bg-emerald-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emerald-800 mb-4">
+                        {language === 'ko' ? '주요 효능' : 'Key Benefits'}
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {recommendedTea.teaDetails.benefits[language].map((benefit: string, index: number) => (
+                          <div key={index} className="flex items-center text-sm text-emerald-700">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                            <span>{benefit}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 mt-4">
-                      {recommendedTea.teaDetails.description[language]}
-                    </p>
+
+                    <div className="bg-amber-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-amber-800 mb-3">
+                        {language === 'ko' ? '추천 이유' : 'Why This Tea?'}
+                      </h4>
+                      <p className="text-sm text-amber-700 leading-relaxed">
+                        {recommendedTea.explanation}
+                      </p>
+                    </div>
                   </div>
                 )}
 
