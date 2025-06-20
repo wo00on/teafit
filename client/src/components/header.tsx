@@ -17,8 +17,7 @@ export function Header() {
   const navigationItems = [
     { key: 'diagnosis', href: '#diagnosis' },
     { key: 'catalog', href: '#catalog' },
-    { key: 'today', href: '#today' },
-    { key: 'diary', href: '#diary' }
+    { key: 'today', href: '#today' }
   ];
 
   return (
@@ -26,25 +25,24 @@ export function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <Leaf className="text-emerald-600 text-2xl" />
-            <h1 className="text-2xl font-bold text-amber-800">TEAFIT</h1>
+            <h1 className="text-3xl font-elegant font-semibold text-amber-800 tracking-tight">TEAFIT</h1>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => scrollToSection(item.key)}
-                className="text-gray-700 hover:text-amber-800 transition-colors duration-300 font-medium"
-              >
-                {t(`navigation.${item.key}`)}
-              </button>
-            ))}
-          </div>
-
           <div className="flex items-center space-x-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => scrollToSection(item.key)}
+                  className="text-gray-700 hover:text-amber-800 transition-colors duration-300 font-medium"
+                >
+                  {t(`navigation.${item.key}`)}
+                </button>
+              ))}
+            </div>
             {/* Language Toggle */}
             <Button
               variant="outline"

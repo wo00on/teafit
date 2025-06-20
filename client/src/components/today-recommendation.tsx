@@ -40,20 +40,17 @@ export function TodayRecommendation() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <Clock className="mr-2 w-4 h-4 text-emerald-600" />
-                  <span>우리는 시간: {todayTea.brewingTime}</span>
+                  <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {todayTea.brewingTime}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />
-                  <span>적정 온도: {todayTea.temperature}</span>
+                  <span>{language === 'ko' ? '적정 온도' : 'Temperature'}: {todayTea.temperature}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <Star className="mr-2 w-4 h-4 text-emerald-600" />
-                  <span>효능: {todayTea.benefits[language].join(', ')}</span>
+                  <span>{language === 'ko' ? '효능' : 'Benefits'}: {todayTea.benefits[language].join(', ')}</span>
                 </div>
               </div>
-              <Button className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
-                {t('today.viewDetails')}
-              </Button>
             </div>
           </div>
         </div>

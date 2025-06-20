@@ -4,7 +4,6 @@ import { FloatingTeaCarousel } from '../components/floating-tea-carousel';
 import { DiagnosisSection } from '../components/diagnosis-section';
 import { TodayRecommendation } from '../components/today-recommendation';
 import { TeaCatalog } from '../components/tea-catalog';
-import { TeaDiary } from '../components/tea-diary';
 import { Footer } from '../components/footer';
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <DiagnosisSection />
       <TodayRecommendation />
       <TeaCatalog />
-      <TeaDiary />
       <Footer />
     </div>
   );

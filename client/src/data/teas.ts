@@ -34,7 +34,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '90-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['relaxation', 'sleep', 'herbal']
   },
   {
@@ -70,7 +70,7 @@ export const teas: Tea[] = [
     brewingTime: '4-6분',
     temperature: '85-90°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1571816119107-ac63dcd8c1b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['relaxation', 'aromatherapy', 'floral']
   },
   {
@@ -88,7 +88,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '70-80°C',
     caffeine: 'high',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: 'https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
     tags: ['energy', 'focus', 'traditional']
   },
   {
@@ -112,17 +112,26 @@ export const teas: Tea[] = [
 ];
 
 export const getTodayRecommendation = (): Tea => {
-  const hour = new Date().getHours();
+  const now = new Date();
+  const hour = now.getHours();
+  const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
   
+  // Use day of year to cycle through different teas each day
+  const teaIndex = dayOfYear % teas.length;
+  
+  // Still consider time of day for appropriate recommendations
   if (hour >= 6 && hour < 12) {
-    // Morning: Energy boosting teas
-    return teas.find(tea => tea.id === 'green-tea') || teas[0];
+    // Morning: Energy boosting teas (green tea, mate tea)
+    const morningTeas = teas.filter(tea => tea.caffeine === 'medium' || tea.caffeine === 'high');
+    return morningTeas[dayOfYear % morningTeas.length] || teas[teaIndex];
   } else if (hour >= 12 && hour < 18) {
     // Afternoon: Focus enhancing teas
-    return teas.find(tea => tea.id === 'mate-tea') || teas[0];
+    const afternoonTeas = teas.filter(tea => tea.tags.includes('focus') || tea.tags.includes('concentration'));
+    return afternoonTeas[dayOfYear % afternoonTeas.length] || teas[teaIndex];
   } else {
     // Evening: Relaxing teas
-    return teas.find(tea => tea.id === 'chamomile') || teas[0];
+    const eveningTeas = teas.filter(tea => tea.caffeine === 'none' && (tea.tags.includes('relaxation') || tea.tags.includes('sleep')));
+    return eveningTeas[dayOfYear % eveningTeas.length] || teas[teaIndex];
   }
 };
 

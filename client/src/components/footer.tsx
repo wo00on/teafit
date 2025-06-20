@@ -68,14 +68,6 @@ export function Footer() {
                   {t('navigation.today')}
                 </button>
               </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('diary')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition-colors"
-                >
-                  {t('navigation.diary')}
-                </button>
-              </li>
             </ul>
           </div>
 

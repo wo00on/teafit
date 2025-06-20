@@ -5,16 +5,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Clock, Thermometer, Star } from 'lucide-react';
 import type { DiagnosisAnswer } from '../types/tea';
+import { teas } from '../data/teas';
 
 export function DiagnosisSection() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const { toast } = useToast();
   const [answers, setAnswers] = useState<Partial<DiagnosisAnswer>>({});
+  const [showResultDialog, setShowResultDialog] = useState(false);
+  const [recommendedTea, setRecommendedTea] = useState<any>(null);
 
   const diagnosisMutation = useMutation({
     mutationFn: async (diagnosisData: any) => {
@@ -22,15 +26,12 @@ export function DiagnosisSection() {
       return response.json();
     },
     onSuccess: () => {
-      toast({
-        title: "진단 완료!",
-        description: "당신만의 차 추천이 완료되었습니다.",
-      });
+      // Success handled in handleSubmit
     },
     onError: () => {
       toast({
-        title: "진단 실패",
-        description: "진단 중 오류가 발생했습니다. 다시 시도해주세요.",
+        title: language === 'ko' ? "진단 실패" : "Diagnosis Failed",
+        description: language === 'ko' ? "진단 중 오류가 발생했습니다. 다시 시도해주세요." : "An error occurred during diagnosis. Please try again.",
         variant: "destructive",
       });
     }
@@ -42,9 +43,22 @@ export function DiagnosisSection() {
       return response.json();
     },
     onSuccess: (data) => {
+      // Find the tea details from our tea data
+      const teaDetails = teas.find(tea => 
+        tea.name.ko === data.recommendedTea || tea.name.en === data.recommendedTea
+      );
+      
+      setRecommendedTea({
+        ...data,
+        teaDetails
+      });
+      setShowResultDialog(true);
+    },
+    onError: () => {
       toast({
-        title: `추천차: ${data.recommendedTea}`,
-        description: data.explanation,
+        title: language === 'ko' ? "추천 실패" : "Recommendation Failed",
+        description: language === 'ko' ? "추천 중 오류가 발생했습니다. 다시 시도해주세요." : "An error occurred during recommendation. Please try again.",
+        variant: "destructive",
       });
     }
   });
@@ -56,8 +70,8 @@ export function DiagnosisSection() {
   const handleSubmit = async () => {
     if (Object.keys(answers).length < 8) {
       toast({
-        title: "모든 질문에 답해주세요",
-        description: "진단을 위해 8개 질문에 모두 답해주세요.",
+        title: language === 'ko' ? "모든 질문에 답해주세요" : "Please answer all questions",
+        description: language === 'ko' ? "진단을 위해 8개 질문에 모두 답해주세요." : "Please answer all 8 questions for diagnosis.",
         variant: "destructive",
       });
       return;
@@ -131,11 +145,85 @@ export function DiagnosisSection() {
                 className="bg-amber-800 hover:bg-amber-700 text-white px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <Sparkles className="mr-2 w-5 h-5" />
-                {diagnosisMutation.isPending || recommendationMutation.isPending ? '진단 중...' : t('diagnosis.submit')}
+                {diagnosisMutation.isPending || recommendationMutation.isPending ? 
+                  (language === 'ko' ? '진단 중...' : 'Analyzing...') : 
+                  t('diagnosis.submit')
+                }
               </Button>
             </div>
           </div>
         </div>
+
+        {/* Recommendation Result Dialog */}
+        <Dialog open={showResultDialog} onOpenChange={setShowResultDialog}>
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-amber-800 text-center">
+                {language === 'ko' ? '당신을 위한 완벽한 차' : 'Your Perfect Tea'}
+              </DialogTitle>
+            </DialogHeader>
+            
+            {recommendedTea && (
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg">
+                    {recommendedTea.teaDetails ? (
+                      <img 
+                        src={recommendedTea.teaDetails.image} 
+                        alt={recommendedTea.teaDetails.name[language]} 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center">
+                        <span className="text-4xl">🍃</span>
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="text-3xl font-bold text-amber-800 mb-2">
+                    {recommendedTea.recommendedTea}
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-4">
+                    {recommendedTea.explanation}
+                  </p>
+                </div>
+
+                {recommendedTea.teaDetails && (
+                  <div className="bg-orange-50 rounded-xl p-6">
+                    <h4 className="font-semibold text-amber-800 mb-4">
+                      {language === 'ko' ? '차 정보' : 'Tea Information'}
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Clock className="mr-2 w-4 h-4 text-emerald-600" />
+                        <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {recommendedTea.teaDetails.brewingTime}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />
+                        <span>{language === 'ko' ? '적정 온도' : 'Temperature'}: {recommendedTea.teaDetails.temperature}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Star className="mr-2 w-4 h-4 text-emerald-600" />
+                        <span>{language === 'ko' ? '효능' : 'Benefits'}: {recommendedTea.teaDetails.benefits[language].slice(0, 2).join(', ')}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 mt-4">
+                      {recommendedTea.teaDetails.description[language]}
+                    </p>
+                  </div>
+                )}
+
+                <div className="text-center">
+                  <Button 
+                    onClick={() => setShowResultDialog(false)}
+                    className="bg-amber-800 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-medium"
+                  >
+                    {language === 'ko' ? '확인' : 'Got it'}
+                  </Button>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

@@ -3,8 +3,7 @@ export const translations = {
     navigation: {
       diagnosis: '진단하기',
       catalog: '차 둘러보기',
-      today: '오늘의 추천',
-      diary: '차 다이어리'
+      today: '오늘의 추천'
     },
     hero: {
       title: '한 잔의 차로,',
@@ -123,8 +122,7 @@ export const translations = {
     navigation: {
       diagnosis: 'Tea Diagnosis',
       catalog: 'Tea Catalog',
-      today: "Today's Tea",
-      diary: 'Tea Diary'
+      today: "Today's Tea"
     },
     hero: {
       title: 'A cup of tea,',

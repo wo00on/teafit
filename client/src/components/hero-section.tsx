@@ -26,11 +26,11 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+        <h1 className="text-5xl md:text-7xl font-elegant font-medium text-white mb-6 animate-fade-in leading-tight">
           {t('hero.title')}<br />
-          <span className="text-amber-200">{t('hero.subtitle')}</span>
+          <span className="text-amber-200 font-light">{t('hero.subtitle')}</span>
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 mb-8 font-light animate-fade-in">
+        <p className="text-xl md:text-2xl text-white/90 mb-8 font-light animate-fade-in leading-relaxed">
           {t('hero.description')}
         </p>
         <Button 
