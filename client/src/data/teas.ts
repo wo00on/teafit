@@ -13,7 +13,7 @@ export const teas: Tea[] = [
       ko: ['혈액순환 개선', '면역력 강화', '소화 촉진'],
       en: ['Improved circulation', 'Immune boost', 'Digestive aid']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
     image: '/images/tea-1.png',
@@ -31,10 +31,10 @@ export const teas: Tea[] = [
       ko: ['숙면 유도', '스트레스 완화', '소화 개선'],
       en: ['Sleep promotion', 'Stress relief', 'Digestive support']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '85-95°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-2.png',
     tags: ['calming', 'floral', 'bedtime']
   },
   {
@@ -49,7 +49,7 @@ export const teas: Tea[] = [
       ko: ['비타민C 풍부', '면역력 증진', '피로 회복'],
       en: ['Rich in Vitamin C', 'Immune boost', 'Fatigue relief']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '80-90°C',
     caffeine: 'none',
     image: '/images/tea-3.png',
@@ -67,10 +67,10 @@ export const teas: Tea[] = [
       ko: ['항산화 작용', '집중력 향상', '신진대사 촉진'],
       en: ['Antioxidant power', 'Enhanced focus', 'Metabolism boost']
     },
-    brewingTime: '2-3분',
+    brewingTime: { ko: '2-3분', en: '2-3 minutes' },
     temperature: '70-80°C',
     caffeine: 'medium',
-    image: '/images/tea-1.png',
+    image: '/images/tea-4.png',
     tags: ['antioxidant', 'focus', 'traditional']
   },
   {
@@ -85,10 +85,10 @@ export const teas: Tea[] = [
       ko: ['소화 촉진', '피로 회복', '해독 작용'],
       en: ['Digestive aid', 'Fatigue recovery', 'Detoxification']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '85-95°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-5.png',
     tags: ['digestive', 'sweet-sour', 'detox']
   },
   {
@@ -103,10 +103,10 @@ export const teas: Tea[] = [
       ko: ['에너지 증진', '집중력 향상', '심장 건강'],
       en: ['Energy boost', 'Mental alertness', 'Heart health']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '95-100°C',
     caffeine: 'high',
-    image: '/images/tea-1.png',
+    image: '/images/tea-6.png',
     tags: ['energy', 'focus', 'traditional']
   },
   {
@@ -121,10 +121,10 @@ export const teas: Tea[] = [
       ko: ['혈액순환 개선', '혈당 조절', '항염 작용'],
       en: ['Circulation improvement', 'Blood sugar control', 'Anti-inflammatory']
     },
-    brewingTime: '7-10분',
+    brewingTime: { ko: '7-10분', en: '7-10 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-7.png',
     tags: ['warming', 'circulation', 'spicy']
   },
   {
@@ -139,10 +139,10 @@ export const teas: Tea[] = [
       ko: ['에너지 증진', '지구력 향상', '항산화'],
       en: ['Energy enhancement', 'Endurance boost', 'Antioxidant']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '70-80°C',
     caffeine: 'high',
-    image: '/images/tea-1.png',
+    image: '/images/tea-8.png',
     tags: ['energy', 'focus', 'traditional']
   },
   {
@@ -157,10 +157,10 @@ export const teas: Tea[] = [
       ko: ['눈 피로 완화', '열 내림', '간 건강'],
       en: ['Eye fatigue relief', 'Heat clearing', 'Liver health']
     },
-    brewingTime: '5-8분',
+    brewingTime: { ko: '5-8분', en: '5-8 minutes' },
     temperature: '85-95°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-9.png',
     tags: ['traditional', 'eye-care', 'floral']
   },
 
@@ -177,7 +177,7 @@ export const teas: Tea[] = [
       ko: ['기분 전환', '소화 촉진', '집중력 향상'],
       en: ['Mood enhancement', 'Digestive aid', 'Improved focus']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '95-100°C',
     caffeine: 'high',
     image: '/images/tea-10.png',
@@ -195,10 +195,10 @@ export const teas: Tea[] = [
       ko: ['스트레스 완화', '항산화', '향기 치유'],
       en: ['Stress relief', 'Antioxidant', 'Aromatic healing']
     },
-    brewingTime: '2-3분',
+    brewingTime: { ko: '2-3분', en: '2-3 minutes' },
     temperature: '75-85°C',
     caffeine: 'medium',
-    image: '/images/tea-1.png',
+    image: '/images/tea-11.png',
     tags: ['floral', 'relaxation', 'fragrant']
   },
   {
@@ -213,10 +213,10 @@ export const teas: Tea[] = [
       ko: ['혈액순환', '소화촉진', '면역력 강화'],
       en: ['Circulation boost', 'Digestive aid', 'Immunity support']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '95-100°C',
     caffeine: 'medium',
-    image: '/images/tea-1.png',
+    image: '/images/tea-12.png',
     tags: ['spicy', 'warming', 'traditional']
   },
   {
@@ -231,7 +231,7 @@ export const teas: Tea[] = [
       ko: ['비타민C 보충', '면역력 향상', '감기 예방'],
       en: ['Vitamin C boost', 'Immune support', 'Cold prevention']
     },
-    brewingTime: '4-6분',
+    brewingTime: { ko: '4-6분', en: '4-6 minutes' },
     temperature: '85-95°C',
     caffeine: 'none',
     image: '/images/tea-1.png',
@@ -251,10 +251,10 @@ export const teas: Tea[] = [
       ko: ['갈증 해소', '혈당 조절', '소화 개선'],
       en: ['Thirst quenching', 'Blood sugar control', 'Digestive health']
     },
-    brewingTime: '5-10분',
+    brewingTime: { ko: '5-10분', en: '5-10 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-2.png',
     tags: ['nutty', 'traditional', 'cooling']
   },
   {
@@ -269,10 +269,10 @@ export const teas: Tea[] = [
       ko: ['혈당 안정', '체중 관리', '식이섬유 공급'],
       en: ['Blood sugar stability', 'Weight management', 'Fiber source']
     },
-    brewingTime: '7-10분',
+    brewingTime: { ko: '7-10분', en: '7-10 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-3.png',
     tags: ['nutty', 'healthy', 'filling']
   },
   {
@@ -287,10 +287,10 @@ export const teas: Tea[] = [
       ko: ['이뇨 작용', '부종 완화', '신장 건강'],
       en: ['Diuretic effect', 'Swelling reduction', 'Kidney health']
     },
-    brewingTime: '10-15분',
+    brewingTime: { ko: '10-15분', en: '10-15 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-4.png',
     tags: ['detox', 'medicinal', 'cleansing']
   },
   {
@@ -305,10 +305,10 @@ export const teas: Tea[] = [
       ko: ['항산화', '단백질 공급', '모발 건강'],
       en: ['Antioxidant', 'Protein source', 'Hair health']
     },
-    brewingTime: '8-12분',
+    brewingTime: { ko: '8-12분', en: '8-12 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-5.png',
     tags: ['protein', 'antioxidant', 'beauty']
   },
 
@@ -325,10 +325,10 @@ export const teas: Tea[] = [
       ko: ['무카페인', '미네랄 풍부', '피부 건강'],
       en: ['Caffeine-free', 'Mineral rich', 'Skin health']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-6.png',
     tags: ['sweet', 'mineral', 'caffeine-free']
   },
   {
@@ -343,10 +343,10 @@ export const teas: Tea[] = [
       ko: ['소화 촉진', '구취 제거', '기분 전환'],
       en: ['Digestive aid', 'Breath freshening', 'Mood lift']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
-    image: '/images/tea-1.png',
+    image: '/images/tea-7.png',
     tags: ['mint', 'digestive', 'cooling']
   },
   {
@@ -361,7 +361,7 @@ export const teas: Tea[] = [
       ko: ['혈압 조절', '항산화', '비타민C'],
       en: ['Blood pressure control', 'Antioxidant', 'Vitamin C']
     },
-    brewingTime: '5-7분',
+    brewingTime: { ko: '5-7분', en: '5-7 minutes' },
     temperature: '95-100°C',
     caffeine: 'none',
     image: '/images/tea-8.png',
@@ -381,10 +381,10 @@ export const teas: Tea[] = [
       ko: ['지방 분해', '콜레스테롤 조절', '신진대사 촉진'],
       en: ['Fat metabolism', 'Cholesterol control', 'Metabolism boost']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '85-95°C',
     caffeine: 'medium',
-    image: '/images/tea-1.png',
+    image: '/images/tea-9.png',
     tags: ['premium', 'metabolism', 'traditional']
   },
   {
@@ -399,7 +399,7 @@ export const teas: Tea[] = [
       ko: ['항노화', '피부 미용', '강력한 항산화'],
       en: ['Anti-aging', 'Skin beauty', 'Powerful antioxidant']
     },
-    brewingTime: '4-6분',
+    brewingTime: { ko: '4-6분', en: '4-6 minutes' },
     temperature: '75-85°C',
     caffeine: 'low',
     image: '/images/tea-10.png',
@@ -417,7 +417,7 @@ export const teas: Tea[] = [
       ko: ['소화 개선', '체중 감량', '콜레스테롤 감소'],
       en: ['Digestive improvement', 'Weight loss', 'Cholesterol reduction']
     },
-    brewingTime: '3-5분',
+    brewingTime: { ko: '3-5분', en: '3-5 minutes' },
     temperature: '95-100°C',
     caffeine: 'medium',
     image: '/images/tea-11.png',

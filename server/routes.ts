@@ -92,10 +92,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/recommend", async (req, res) => {
     try {
       const { answers, language } = req.body;
-      
+
       // Enhanced tea recommendation algorithm with more variety
       let recommendedTea = "녹차"; // Default
-      
+
       if (answers.temperature === "cold") {
         if (answers.desiredEffect === "energy") {
           recommendedTea = "생강차";
@@ -154,9 +154,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         recommendedTea = "보이차";
       }
 
-      res.json({ recommendedTea, explanation: getTeaExplanation(recommendedTea, language || 'ko') });
+      // Find the tea data to get proper translation
+      const teaData = teas.find(tea => tea.name.ko === recommendedTea);
+
+      res.json({
+        recommendedTea: teaData ? teaData.name[language] : recommendedTea,
+        teaData: teaData || null,
+        explanation: getTeaExplanation(recommendedTea, language),
+        brewingInstructions: getBrewingInstructions(recommendedTea, language)
+      });
     } catch (error) {
-      res.status(500).json({ error: "Failed to generate recommendation" });
+      console.error('Error in recommend endpoint:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
   });
 
@@ -259,11 +268,163 @@ function getTeaExplanation(teaName: string, language: string = 'ko'): string {
       en: "Fermented tea that improves digestion and supports weight loss."
     }
   };
-  
+
   const tea = explanations[teaName];
   if (!tea) {
     return language === 'ko' ? "건강한 차 생활을 위한 좋은 선택입니다." : "A wonderful choice for healthy tea lifestyle.";
   }
-  
+
   return tea[language as 'ko' | 'en'] || tea.ko;
+}
+
+function getBrewingInstructions(teaName: string, language: string): string {
+  const brewingData: Record<string, { time: string; temp: string; ko: string; en: string }> = {
+    "생강차": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-7분간 우려내세요. 꿀이나 레몬을 추가하면 더욱 맛있습니다.",
+      en: "Steep in boiling water for 5-7 minutes. Add honey or lemon for enhanced flavor."
+    },
+    "캐모마일": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "85-95°C",
+      ko: "따뜻한 물에 5-7분간 우려내세요. 잠들기 전에 마시면 좋습니다.",
+      en: "Steep in warm water for 5-7 minutes. Best enjoyed before bedtime."
+    },
+    "유자차": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "80-90°C",
+      ko: "따뜻한 물에 3-5분간 우려내세요. 겨울철 감기 예방에 좋습니다.",
+      en: "Steep in warm water for 3-5 minutes. Great for cold prevention in winter."
+    },
+    "녹차": {
+      time: language === 'ko' ? "2-3분" : "2-3 minutes",
+      temp: "70-80°C",
+      ko: "따뜻한 물에 2-3분간 우려내세요. 너무 오래 우리지 마세요.",
+      en: "Steep in warm water for 2-3 minutes. Don't over-steep."
+    },
+    "매실차": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "85-95°C",
+      ko: "따뜻한 물에 5-7분간 우려내세요. 식후에 마시면 소화에 좋습니다.",
+      en: "Steep in warm water for 5-7 minutes. Great for digestion after meals."
+    },
+    "홍차": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 3-5분간 우려내세요. 우유나 설탕을 추가할 수 있습니다.",
+      en: "Steep in boiling water for 3-5 minutes. Can add milk or sugar."
+    },
+    "계피차": {
+      time: language === 'ko' ? "7-10분" : "7-10 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 7-10분간 우려내세요. 꿀을 추가하면 더욱 맛있습니다.",
+      en: "Steep in boiling water for 7-10 minutes. Add honey for enhanced taste."
+    },
+    "마테차": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "70-80°C",
+      ko: "따뜻한 물에 3-5분간 우려내세요. 아침에 마시면 좋습니다.",
+      en: "Steep in warm water for 3-5 minutes. Best enjoyed in the morning."
+    },
+    "국화차": {
+      time: language === 'ko' ? "5-8분" : "5-8 minutes",
+      temp: "85-95°C",
+      ko: "따뜻한 물에 5-8분간 우려내세요. 눈이 피로할 때 좋습니다.",
+      en: "Steep in warm water for 5-8 minutes. Great when eyes feel tired."
+    },
+    "얼그레이": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 3-5분간 우려내세요. 오후 티타임에 완벽합니다.",
+      en: "Steep in boiling water for 3-5 minutes. Perfect for afternoon tea time."
+    },
+    "자스민 녹차": {
+      time: language === 'ko' ? "2-3분" : "2-3 minutes",
+      temp: "75-85°C",
+      ko: "따뜻한 물에 2-3분간 우려내세요. 은은한 꽃향이 매력적입니다.",
+      en: "Steep in warm water for 2-3 minutes. Enjoy the delicate floral aroma."
+    },
+    "차이 스파이스": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-7분간 우려내세요. 우유를 추가하면 전통적인 맛을 즐길 수 있습니다.",
+      en: "Steep in boiling water for 5-7 minutes. Add milk for traditional taste."
+    },
+    "레몬 허니": {
+      time: language === 'ko' ? "4-6분" : "4-6 minutes",
+      temp: "85-95°C",
+      ko: "따뜻한 물에 4-6분간 우려내세요. 감기 기운이 있을 때 좋습니다.",
+      en: "Steep in warm water for 4-6 minutes. Great when feeling under the weather."
+    },
+    "보리차": {
+      time: language === 'ko' ? "5-10분" : "5-10 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-10분간 우려내세요. 차갑게 해서 마셔도 좋습니다.",
+      en: "Steep in boiling water for 5-10 minutes. Can also be enjoyed cold."
+    },
+    "현미차": {
+      time: language === 'ko' ? "7-10분" : "7-10 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 7-10분간 우려내세요. 고소한 맛이 일품입니다.",
+      en: "Steep in boiling water for 7-10 minutes. Enjoy the nutty flavor."
+    },
+    "옥수수수염차": {
+      time: language === 'ko' ? "10-15분" : "10-15 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 10-15분간 우려내세요. 부종 완화에 도움이 됩니다.",
+      en: "Steep in boiling water for 10-15 minutes. Helps reduce swelling."
+    },
+    "검은콩차": {
+      time: language === 'ko' ? "8-12분" : "8-12 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 8-12분간 우려내세요. 항산화 효과가 뛰어납니다.",
+      en: "Steep in boiling water for 8-12 minutes. Excellent antioxidant properties."
+    },
+    "루이보스": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-7분간 우려내세요. 무카페인으로 언제든 드실 수 있습니다.",
+      en: "Steep in boiling water for 5-7 minutes. Caffeine-free, enjoy anytime."
+    },
+    "페퍼민트": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-7분간 우려내세요. 소화가 안 될 때 좋습니다.",
+      en: "Steep in boiling water for 5-7 minutes. Great for digestive issues."
+    },
+    "히비스커스": {
+      time: language === 'ko' ? "5-7분" : "5-7 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 5-7분간 우려내세요. 붉은 색상이 아름다운 차입니다.",
+      en: "Steep in boiling water for 5-7 minutes. Beautiful ruby-red colored tea."
+    },
+    "우롱차": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "85-95°C",
+      ko: "따뜻한 물에 3-5분간 우려내세요. 여러 번 우려 마실 수 있습니다.",
+      en: "Steep in warm water for 3-5 minutes. Can be steeped multiple times."
+    },
+    "백차": {
+      time: language === 'ko' ? "4-6분" : "4-6 minutes",
+      temp: "75-85°C",
+      ko: "따뜻한 물에 4-6분간 우려내세요. 섬세한 맛을 즐겨보세요.",
+      en: "Steep in warm water for 4-6 minutes. Enjoy the delicate flavor."
+    },
+    "보이차": {
+      time: language === 'ko' ? "3-5분" : "3-5 minutes",
+      temp: "95-100°C",
+      ko: "끓는 물에 3-5분간 우려내세요. 깊고 진한 맛이 특징입니다.",
+      en: "Steep in boiling water for 3-5 minutes. Features deep, rich flavor."
+    }
+  };
+
+  const brewing = brewingData[teaName];
+  if (!brewing) {
+    return language === 'ko' 
+      ? "따뜻한 물에 5분간 우려내세요."
+      : "Steep in warm water for 5 minutes.";
+  }
+
+  return brewing[language as keyof typeof brewing] || brewing.ko;
 }
