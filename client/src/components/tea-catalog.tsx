@@ -138,7 +138,7 @@ export function TeaCatalog() {
                   <h3 className="text-xl font-bold text-amber-800 mb-2">{typeof tea.name === 'string' ? tea.name : tea.name[language]}</h3>
                   <p className="text-gray-600 text-sm mb-4">{tea.description[language]}</p>
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span>{tea.brewingTime}</span>
+                    <span>{typeof tea.brewingTime === 'string' ? tea.brewingTime : tea.brewingTime[language]}</span>
                     <span>{tea.temperature}</span>
                     <Badge variant={tea.caffeine === 'none' ? 'secondary' : 'outline'}>
                       {tea.caffeine === 'none' ? '무카페인' : '카페인'}

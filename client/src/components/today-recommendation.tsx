@@ -40,7 +40,7 @@ export function TodayRecommendation() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <Clock className="mr-2 w-4 h-4 text-emerald-600" />
-                  <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {todayTea.brewingTime}</span>
+                  <span>{language === 'ko' ? '우려시간' : 'Brewing Time'}: {typeof todayTea.brewingTime === 'string' ? todayTea.brewingTime : todayTea.brewingTime[language]}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />
