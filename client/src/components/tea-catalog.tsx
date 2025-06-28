@@ -135,7 +135,7 @@ export function TeaCatalog() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-amber-800 mb-2">{tea.name[language]}</h3>
+                  <h3 className="text-xl font-bold text-amber-800 mb-2">{typeof tea.name === 'string' ? tea.name : tea.name[language]}</h3>
                   <p className="text-gray-600 text-sm mb-4">{tea.description[language]}</p>
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>{tea.brewingTime}</span>

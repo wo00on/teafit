@@ -18,7 +18,7 @@ export function FloatingTeaCarousel() {
         <p className="text-center text-gray-600 mb-16">
           {language === 'ko' ? '자연이 선사하는 건강한 한 잔을 만나보세요' : 'Discover healthy cups nature provides'}
         </p>
-        
+
         <div className="relative max-w-5xl mx-auto">
           <Carousel
             plugins={[plugin.current]}
