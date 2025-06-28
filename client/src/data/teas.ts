@@ -16,7 +16,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1597318813788-0e5afc00d0c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['warming', 'spicy', 'immune-boost']
   },
   {
@@ -34,7 +34,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1564890781544-8f85f0a2b8b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['calming', 'floral', 'bedtime']
   },
   {
@@ -52,7 +52,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '80-90°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-3.png',
     tags: ['citrus', 'vitamin-c', 'korean-traditional']
   },
   {
@@ -70,7 +70,7 @@ export const teas: Tea[] = [
     brewingTime: '2-3분',
     temperature: '70-80°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['antioxidant', 'focus', 'traditional']
   },
   {
@@ -88,7 +88,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['digestive', 'sweet-sour', 'detox']
   },
   {
@@ -106,7 +106,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '95-100°C',
     caffeine: 'high',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['energy', 'focus', 'traditional']
   },
   {
@@ -124,7 +124,7 @@ export const teas: Tea[] = [
     brewingTime: '7-10분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['warming', 'circulation', 'spicy']
   },
   {
@@ -142,7 +142,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '70-80°C',
     caffeine: 'high',
-    image: 'https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['energy', 'focus', 'traditional']
   },
   {
@@ -160,7 +160,7 @@ export const teas: Tea[] = [
     brewingTime: '5-8분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['traditional', 'eye-care', 'floral']
   },
 
@@ -180,7 +180,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '95-100°C',
     caffeine: 'high',
-    image: 'https://images.unsplash.com/photo-1571934811086-9dd9d2b525b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-10.png',
     tags: ['citrus', 'premium', 'afternoon']
   },
   {
@@ -198,7 +198,7 @@ export const teas: Tea[] = [
     brewingTime: '2-3분',
     temperature: '75-85°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['floral', 'relaxation', 'fragrant']
   },
   {
@@ -216,7 +216,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['spicy', 'warming', 'traditional']
   },
   {
@@ -234,7 +234,7 @@ export const teas: Tea[] = [
     brewingTime: '4-6분',
     temperature: '85-95°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['citrus', 'sweet', 'vitamin']
   },
 
@@ -254,7 +254,7 @@ export const teas: Tea[] = [
     brewingTime: '5-10분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['nutty', 'traditional', 'cooling']
   },
   {
@@ -272,7 +272,7 @@ export const teas: Tea[] = [
     brewingTime: '7-10분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['nutty', 'healthy', 'filling']
   },
   {
@@ -290,7 +290,7 @@ export const teas: Tea[] = [
     brewingTime: '10-15분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['detox', 'medicinal', 'cleansing']
   },
   {
@@ -308,7 +308,7 @@ export const teas: Tea[] = [
     brewingTime: '8-12분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1582282436293-7a0ae64aebcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['protein', 'antioxidant', 'beauty']
   },
 
@@ -328,7 +328,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['sweet', 'mineral', 'caffeine-free']
   },
   {
@@ -346,7 +346,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1623691345865-85971b4c9d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['mint', 'digestive', 'cooling']
   },
   {
@@ -364,7 +364,7 @@ export const teas: Tea[] = [
     brewingTime: '5-7분',
     temperature: '95-100°C',
     caffeine: 'none',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-8.png',
     tags: ['tart', 'colorful', 'vitamin']
   },
 
@@ -384,7 +384,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '85-95°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-1.png',
     tags: ['premium', 'metabolism', 'traditional']
   },
   {
@@ -402,7 +402,7 @@ export const teas: Tea[] = [
     brewingTime: '4-6분',
     temperature: '75-85°C',
     caffeine: 'low',
-    image: 'https://images.unsplash.com/photo-1597318813788-0e5afc00d0c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-10.png',
     tags: ['delicate', 'premium', 'anti-aging']
   },
   {
@@ -420,7 +420,7 @@ export const teas: Tea[] = [
     brewingTime: '3-5분',
     temperature: '95-100°C',
     caffeine: 'medium',
-    image: 'https://images.unsplash.com/photo-1571934811086-9dd9d2b525b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300',
+    image: '/images/tea-11.png',
     tags: ['fermented', 'digestive', 'weight-loss']
   }
 ];
@@ -440,9 +440,9 @@ export const searchTeas = (query: string, category?: string): Tea[] => {
       tea.description.ko.toLowerCase().includes(query.toLowerCase()) ||
       tea.description.en.toLowerCase().includes(query.toLowerCase()) ||
       tea.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()));
-    
+
     const matchesCategory = !category || tea.category === category;
-    
+
     return matchesQuery && matchesCategory;
   });
 };
