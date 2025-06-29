@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertTeaDiagnosisSchema, insertTeaDiaryEntrySchema } from "@shared/schema";
 import { z } from "zod";
+import { teas } from "../client/src/data/teas.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Tea diagnosis endpoint
