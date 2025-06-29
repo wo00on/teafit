@@ -196,7 +196,7 @@ export function DiagnosisSection() {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                         <div className="flex items-center text-sm text-gray-600">
                           <Clock className="mr-2 w-4 h-4 text-emerald-600" />
-                          <span>{language === 'ko' ? '우리는 시간' : 'Brewing Time'}: {recommendedTea.teaDetails.brewingTime}</span>
+                          <span>{language === 'ko' ? '우려시간' : 'Brewing Time'}: {recommendedTea.teaDetails.brewingTime[language]}</span>
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                           <Thermometer className="mr-2 w-4 h-4 text-emerald-600" />

@@ -13,7 +13,10 @@ export interface Tea {
     ko: string[];
     en: string[];
   };
-  brewingTime: string; // in minutes
+  brewingTime: {
+    ko: string;
+    en: string;
+  }; // in minutes
   temperature: string; // in Celsius
   caffeine: 'none' | 'low' | 'medium' | 'high';
   image: string;
