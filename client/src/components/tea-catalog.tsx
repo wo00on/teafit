@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useTranslation } from '../lib/i18n';
+import { useTranslation } from '../lib/i18n.tsx';
 import { searchTeas, teas } from '../data/teas';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -73,7 +73,7 @@ export function TeaCatalog() {
                   {language === 'ko' ? '자연의 치유력이 담긴 무카페인 차' : 'Natural healing power in caffeine-free tea'}
                 </p>
                 <Badge variant="secondary" className="text-emerald-600">
-                  {getCategoryCount(category.key)}가지 종류
+                  {getCategoryCount(category.key)} {t('types')}
                 </Badge>
               </CardContent>
             </Card>
@@ -125,7 +125,7 @@ export function TeaCatalog() {
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img 
                     src={tea.image} 
-                    alt={tea.name[language]} 
+                    alt={(tea.name as any)[language]} 
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
@@ -135,13 +135,13 @@ export function TeaCatalog() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-amber-800 mb-2">{typeof tea.name === 'string' ? tea.name : tea.name[language]}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{tea.description[language]}</p>
+                  <h3 className="text-xl font-bold text-amber-800 mb-2">{typeof tea.name === 'string' ? tea.name : (tea.name as any)[language]}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{(tea.description as any)[language]}</p>
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span>{typeof tea.brewingTime === 'string' ? tea.brewingTime : tea.brewingTime[language]}</span>
+                    <span>{typeof tea.brewingTime === 'string' ? tea.brewingTime : (tea.brewingTime as any)[language]}</span>
                     <span>{tea.temperature}</span>
                     <Badge variant={tea.caffeine === 'none' ? 'secondary' : 'outline'}>
-                      {tea.caffeine === 'none' ? '무카페인' : '카페인'}
+                      {tea.caffeine === 'none' ? t('caffeineFree') : t('caffeine')}
                     </Badge>
                   </div>
                 </div>

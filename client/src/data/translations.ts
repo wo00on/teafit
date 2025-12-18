@@ -54,6 +54,7 @@ export const translations = {
             normal: '괜찮은 편이에요'
           }
         },
+        caffeineFree: '무카페인',
         morning: {
           question: '아침 기분은 어떤가요?',
           answers: {
@@ -92,7 +93,8 @@ export const translations = {
         blended: '블렌딩차',
         grain: '곡물차',
         premium: '프리미엄'
-      }
+      },
+      types: '가지 종류'
     },
     today: {
       title: '오늘의 추천차',
@@ -115,6 +117,10 @@ export const translations = {
       description: '당신의 체질과 라이프스타일에 맞춘 프리미엄 티 추천 서비스입니다. 한 잔의 차로 더 건강하고 행복한 일상을 만들어가세요.',
       services: '서비스',
       information: '정보',
+      brandPhilosophy: '브랜드 철학',
+      team: '만든 사람들',
+      privacy: '개인정보처리방침',
+      terms: '이용약관',
       copyright: '나에게 가장 어울리는 한 잔'
     }
   },
@@ -173,6 +179,7 @@ export const translations = {
             normal: 'I am fine with it'
           }
         },
+        caffeineFree: 'Caffeine-free',
         morning: {
           question: 'How do you feel in the morning?',
           answers: {
@@ -211,7 +218,8 @@ export const translations = {
         blended: 'Blended Tea',
         grain: 'Grain Tea',
         premium: 'Premium Tea'
-      }
+      },
+      types: 'types'
     },
     today: {
       title: "Today's Recommended Tea",
@@ -234,6 +242,10 @@ export const translations = {
       description: 'A premium tea recommendation service tailored to your constitution and lifestyle. Create a healthier and happier daily life with a cup of tea.',
       services: 'Services',
       information: 'Information',
+      brandPhilosophy: 'Brand Philosophy',
+      team: 'Team',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Service',
       copyright: 'The perfect cup for you'
     }
   }

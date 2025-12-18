@@ -10,8 +10,8 @@ export function FloatingTeaCarousel() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
 
   return (
-    <section className="py-20 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section className="pt-32 pb-20 bg-gradient-to-b from-orange-50 to-white overflow-visible relative z-20">
+      <div className="container mx-auto px-6 relative z-30" style={{ overflow: 'visible', marginTop: '10rem' }}>
         <h2 className="text-4xl font-bold text-center text-amber-800 mb-4">
           {language === 'ko' ? '다양한 차의 세계' : 'World of Various Teas'}
         </h2>
@@ -28,52 +28,49 @@ export function FloatingTeaCarousel() {
               loop: true,
             }}
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-4 overflow-visible" style={{ overflow: 'visible' }}>
               {teas.map((tea, index) => (
-                <CarouselItem key={tea.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem key={tea.id} className="pl-2 md:pl-4 basis-3/4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 overflow-visible" style={{ overflow: 'visible', zIndex: 2 }}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ 
-                      y: -10,
+                      y: -8,
+                      scale: 1.04,
                       transition: { duration: 0.2 }
                     }}
-                    className="text-center group cursor-pointer"
+                    className="relative group cursor-pointer rounded-3xl overflow-hidden shadow-xl bg-white transition-all duration-300"
+                    style={{ zIndex: 10 }}
                   >
-                    <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-lg group-hover:shadow-2xl transition-all duration-300 bg-white">
-                      <div className="aspect-square overflow-hidden">
-                        <img 
-                          src={tea.image} 
-                          alt={tea.name[language]} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-amber-800 mb-2 text-sm md:text-base">
-                          {tea.name[language]}
-                        </h3>
-                        <div className="flex justify-center">
-                          <span className={`text-xs px-2 py-1 rounded-full ${
-                            tea.category === 'premium' ? 'bg-purple-100 text-purple-700' :
-                            tea.category === 'blended' ? 'bg-blue-100 text-blue-700' :
-                            tea.category === 'grain' ? 'bg-orange-100 text-orange-700' :
-                            'bg-green-100 text-green-700'
-                          }`}>
-                            {tea.category === 'premium' ? (language === 'ko' ? '프리미엄' : 'Premium') :
-                             tea.category === 'blended' ? (language === 'ko' ? '블렌딩' : 'Blended') :
-                             tea.category === 'grain' ? (language === 'ko' ? '곡물차' : 'Grain') :
-                             (language === 'ko' ? '허브차' : 'Herbal')}
-                          </span>
-                        </div>
+                    <div className="relative aspect-square overflow-hidden">
+                      <img 
+                        src={tea.image} 
+                        alt={(tea.name as any)[language]} 
+                        className="w-full h-full object-cover group-hover:brightness-110 group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 group-hover:opacity-60 transition-all duration-300" />
+                      <div className="absolute bottom-0 left-0 w-full p-4 flex flex-col items-center">
+                        <span className="text-white text-lg font-bold drop-shadow-md mb-1">{(tea.name as any)[language]}</span>
+                        <span className={`text-xs px-3 py-1 rounded-full font-semibold shadow-md ${
+                          tea.category === 'premium' ? 'bg-purple-600/80 text-white' :
+                          tea.category === 'blended' ? 'bg-blue-600/80 text-white' :
+                          tea.category === 'grain' ? 'bg-orange-600/80 text-white' :
+                          'bg-green-600/80 text-white'
+                        }`}>
+                          {tea.category === 'premium' ? (language === 'ko' ? '프리미엄' : 'Premium') :
+                           tea.category === 'blended' ? (language === 'ko' ? '블렌딩' : 'Blended') :
+                           tea.category === 'grain' ? (language === 'ko' ? '곡물차' : 'Grain') :
+                           (language === 'ko' ? '허브차' : 'Herbal')}
+                        </span>
                       </div>
                     </div>
                   </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-white/90 border-amber-200 hover:bg-amber-50 text-amber-700 -left-4 md:-left-8" />
-            <CarouselNext className="bg-white/90 border-amber-200 hover:bg-amber-50 text-amber-700 -right-4 md:-right-8" />
+            <CarouselPrevious className="!bg-white !border-2 !border-amber-300 !shadow-lg hover:!bg-amber-50 !text-amber-700 !w-12 !h-12 !rounded-full !left-2 md:!left-4 top-1/2 -translate-y-1/2 z-10" />
+            <CarouselNext className="!bg-white !border-2 !border-amber-300 !shadow-lg hover:!bg-amber-50 !text-amber-700 !w-12 !h-12 !rounded-full !right-2 md:!right-4 top-1/2 -translate-y-1/2 z-10" />
           </Carousel>
         </div>
       </div>

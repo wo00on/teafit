@@ -1,10 +1,23 @@
-import { useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations } from '../data/translations';
 
 type Language = 'ko' | 'en';
 type TranslationKeys = typeof translations.ko;
 
-export const useTranslation = () => {
+type TranslationContextType = {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  toggleLanguage: () => void;
+  t: (key: string) => string;
+};
+
+const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
+
+interface TranslationProviderProps {
+  children: ReactNode;
+}
+
+export function TranslationProvider({ children }: TranslationProviderProps) {
   const [language, setLanguage] = useState<Language>('ko');
 
   useEffect(() => {
@@ -23,19 +36,25 @@ export const useTranslation = () => {
   const t = (key: string): string => {
     const keys = key.split('.');
     let value: any = translations[language];
-    
     for (const k of keys) {
       value = value?.[k];
     }
-    
     return value || key;
   };
 
-  return {
-    language,
-    toggleLanguage,
-    t
-  };
+  return (
+    <TranslationContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
+      {children}
+    </TranslationContext.Provider>
+  );
+};
+
+export const useTranslation = () => {
+  const context = useContext(TranslationContext);
+  if (!context) {
+    throw new Error('useTranslation must be used within a TranslationProvider');
+  }
+  return context;
 };
 
 export const getSessionId = (): string => {

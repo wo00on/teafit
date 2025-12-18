@@ -74,10 +74,10 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('footer.information')}</h4>
             <ul className="space-y-2 text-amber-200">
-              <li><a href="#" className="hover:text-white transition-colors">브랜드 철학</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">만든 사람들</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">개인정보처리방침</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">이용약관</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('footer.brandPhilosophy')}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('footer.team')}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a></li>
             </ul>
           </div>
         </div>
